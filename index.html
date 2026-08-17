@@ -6,6 +6,7 @@
 <title>Spence Hartman — Aerospace Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <style>
   :root {
     --bg: #0b0d11;
@@ -198,6 +199,15 @@
   .cad-part-role { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
   .cad-part-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
   .cad-part-file { font-family: var(--mono); font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; opacity: 0.7; }
+
+  /* 3D MODEL VIEWER */
+  model-viewer.cad-model-viewer { width: 100%; height: 220px; background: var(--surface2); border-radius: 8px; margin-bottom: 16px; border: 1px solid var(--border); --poster-color: transparent; }
+  .cad-part-card model-viewer.cad-model-viewer { height: 170px; margin: 10px 0 12px; }
+  .model-viewer-caption { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: center; margin-top: -12px; margin-bottom: 16px; letter-spacing: 0.04em; }
+  .model-selector { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .model-selector button { font-family: var(--mono); font-size: 10px; padding: 5px 11px; border-radius: 5px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; transition: all 0.15s; }
+  .model-selector button:hover { color: var(--text); border-color: var(--border2); }
+  .model-selector button.active { color: var(--accent); border-color: var(--accent-dim2); background: var(--accent-dim); }
 </style>
 </head>
 <body>
@@ -372,6 +382,7 @@
       <div class="project-icon icon-amber">⚙</div>
       <div class="project-number">03 — Mechanisms</div>
       <div class="project-title">Gear Train System</div>
+      <model-viewer class="cad-model-viewer" src="models/gear_train.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="project-desc">Four-part gear assembly with internal spur gear, external spur gear, and rack-and-pinion mechanism. Parametric tooth profiles designed for proper motion transfer and interference-free meshing.</div>
       <div class="project-tags">
         <span class="tag tag-amber">Gear Design</span>
@@ -388,6 +399,13 @@
       <div class="project-icon icon-blue">◈</div>
       <div class="project-number">04 – 06 — Part Modeling</div>
       <div class="project-title">Progressive Part Studies</div>
+      <model-viewer id="pps-viewer" class="cad-model-viewer" src="models/assignment2.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
+      <div class="model-selector" id="pps-selector">
+        <button type="button" class="active" onclick="document.getElementById('pps-viewer').src='models/assignment2.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 2</button>
+        <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment3.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 3</button>
+        <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment4.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 4</button>
+        <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment9.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 9</button>
+      </div>
       <div class="project-desc">Series of increasingly complex solid parts demonstrating mastery of SolidWorks feature-based modeling: extrusions, revolves, swept profiles, patterns, multi-body design, and surface features.</div>
       <div class="project-tags">
         <span class="tag tag-accent">Feature Modeling</span>
@@ -466,6 +484,7 @@
         </div>
         <span class="tag tag-amber" style="margin-left:auto;flex-shrink:0">Propellant Manufacturing</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/cylinder_cement_mold.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Printed shell used to cast quick-setting cement into a cylindrical form. The cured cement becomes the core mold for shaping the propellant grain's inner bore geometry.</div>
       <div class="cad-part-file">📄 cylinder_cement_mold.SLDPRT</div>
     </div>
@@ -478,6 +497,7 @@
         </div>
         <span class="tag tag-amber" style="margin-left:auto;flex-shrink:0">Propellant Manufacturing</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/propellant_mold.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Outer mold for casting and curing the solid propellant grain inside the PVC motor casing. Defines the outer diameter and ensures concentricity during cure.</div>
       <div class="cad-part-file">📄 Propellant_mold.SLDPRT</div>
     </div>
@@ -490,6 +510,7 @@
         </div>
         <span class="tag tag-amber" style="margin-left:auto;flex-shrink:0">Propellant Manufacturing</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/tamp.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Tamping rod used to compress propellant increments into the motor casing during casting, ensuring uniform density and eliminating voids in the grain.</div>
       <div class="cad-part-file">📄 Tamp.SLDPRT</div>
     </div>
@@ -502,6 +523,7 @@
         </div>
         <span class="tag tag-amber" style="margin-left:auto;flex-shrink:0">Propellant Manufacturing</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/funnel.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Custom funnel sized to the motor casing inner diameter. Channels propellant mix cleanly into the tube without spillage during the casting process.</div>
       <div class="cad-part-file">📄 funnel.SLDPRT</div>
     </div>
@@ -514,6 +536,7 @@
         </div>
         <span class="tag tag-accent" style="margin-left:auto;flex-shrink:0">Motor Hardware</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/one_fourth_cap.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">End cap for sealing the motor casing nozzle end during propellant casting and cure. Threaded 1/4" interface ensures a secure, leak-free press fit.</div>
       <div class="cad-part-file">📄 one_fourth__cap.SLDPRT</div>
     </div>
@@ -526,6 +549,7 @@
         </div>
         <span class="tag tag-accent" style="margin-left:auto;flex-shrink:0">Motor Hardware</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/four_inch_bolt.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Custom-length fastener for securing the motor casing to the stand fixture. Printed to exact length to allow alignment adjustability within the clamp assembly.</div>
       <div class="cad-part-file">📄 Four-Inch_Bolt.SLDPRT</div>
     </div>
@@ -538,6 +562,7 @@
         </div>
         <span class="tag tag-green" style="margin-left:auto;flex-shrink:0">DAQ / Instrumentation</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/load_cell_attachment_v1.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">First iteration adapter coupling the S-type load cell to the motor casing base. Transfers axial thrust force cleanly into the load cell sensing axis.</div>
       <div class="cad-part-file">📄 Load_Cell_Attachment_solidworks.SLDPRT</div>
     </div>
@@ -550,6 +575,7 @@
         </div>
         <span class="tag tag-green" style="margin-left:auto;flex-shrink:0">DAQ / Instrumentation</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/load_cell_attachment_v2.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Revised load cell adapter with improved geometry after v1 testing revealed alignment issues. Refined contact surface ensures consistent force path and reduces off-axis loading.</div>
       <div class="cad-part-file">📄 Load_Cell_Attachment_v2.SLDPRT</div>
     </div>
@@ -562,6 +588,7 @@
         </div>
         <span class="tag tag-accent" style="margin-left:auto;flex-shrink:0">Stand Hardware</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/stabilizer.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Cross-arm clamp that laterally constrains the motor casing on the stand top plate. Adjustable via threaded bolts to accommodate different casing diameters.</div>
       <div class="cad-part-file">📄 Stabilizer.SLDPRT</div>
     </div>
@@ -574,6 +601,7 @@
         </div>
         <span class="tag tag-accent" style="margin-left:auto;flex-shrink:0">Stand Hardware</span>
       </div>
+      <model-viewer class="cad-model-viewer" src="models/ground_stabilizer.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Footer block printed to anchor the stand base to the ground surface during static fire, preventing recoil displacement and maintaining load cell alignment under thrust.</div>
       <div class="cad-part-file">📄 ground_stabilizer.SLDPRT</div>
     </div>
