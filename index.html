@@ -850,17 +850,34 @@
   const textMuted = '#7a8099';
 
   function trimToBurn(tArr, wArr) {
-    // Isolate the actual burn window: walk outward from the peak sample
-    // while thrust stays above a noise-floor threshold. A flat "longest
-    // positive run" isn't reliable here -- weak tests (e.g. partial
-    // ignition) can have long stretches of small positive drift far from
-    // the real spike, so we anchor on the peak instead.
     const maxW = Math.max(...wArr);
     const threshold = Math.max(0.4, maxW * 0.05);
     const peakIdx = wArr.indexOf(maxW);
-    let start = peakIdx, end = peakIdx;
-    while (start > 0 && wArr[start - 1] > threshold) start--;
+
+    // Some DAQ logs reset their own clock to ~0 exactly when the fire
+    // command is issued -- a real "time since ignition" the hardware
+    // already provides. Prefer that over a derived zero-point: search
+    // backward from the peak for the nearest timer reset (time value
+    // drops instead of rising).
+    let start = null;
+    const lookback = Math.min(peakIdx, 400);
+    for (let i = peakIdx; i > peakIdx - lookback; i--) {
+      if (tArr[i] < tArr[i - 1]) { start = i; break; }
+    }
+
+    let end = peakIdx;
     while (end < wArr.length - 1 && wArr[end + 1] > threshold) end++;
+
+    if (start !== null) {
+      return { t: tArr.slice(start, end + 1), w: wArr.slice(start, end + 1) };
+    }
+
+    // No reset found (e.g. FH-1's clock stays at 0 through the whole
+    // pre-fire period instead of resetting): fall back to walking
+    // outward from the peak while thrust stays above the noise floor,
+    // then re-zero time to the window start.
+    start = peakIdx;
+    while (start > 0 && wArr[start - 1] > threshold) start--;
     if (end - start < 1) return { t: tArr, w: wArr };
     const t0 = tArr[start];
     return {
