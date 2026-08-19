@@ -86,6 +86,9 @@
   .research-bullets li { font-size: 13px; color: var(--muted); line-height: 1.6; padding-left: 14px; position: relative; }
   .research-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 2px; }
   .research-card.green .research-bullets li::before { color: var(--green); }
+  .research-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 20px; max-width: 420px; }
+  .research-photos.single { grid-template-columns: 1fr; max-width: 220px; }
+  .research-photos img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); display: block; }
   .research-meta { display: flex; flex-direction: column; gap: 12px; }
   .meta-item { padding: 12px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; }
   .meta-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
@@ -294,6 +297,9 @@
           <li>Tested and analyzed 30+ Kapton samples to quantify oxygen dissociation levels</li>
           <li>Used SolidWorks and Converge CFD to model fluid-sample interaction inside the microplasma system</li>
         </ul>
+        <div class="research-photos single">
+          <img src="images/opila_lab_microplasma.jpg" alt="Working in the Opila Research Group lab with the microplasma resistive heating system">
+        </div>
       </div>
       <div class="research-meta">
         <div class="meta-item">
@@ -329,6 +335,10 @@
           <li>Leveraged NASA CEA and Cantera to model chemical equilibrium and gas dynamics, optimizing experimental parameters and establishing robust, repeatable test procedures</li>
           <li>Identified testing hazards, implemented mitigation strategies, and established comprehensive procedures for safe operation of a high-pressure detonation facility</li>
         </ul>
+        <div class="research-photos">
+          <img src="images/rdre_test_hardware.jpg" alt="Glowing heated test coil hardware for the RDRE initiator project">
+          <img src="images/rdre_team_build.jpg" alt="Building the RDRE test enclosure and safety fixture with the team">
+        </div>
       </div>
       <div class="research-meta">
         <div class="meta-item">
