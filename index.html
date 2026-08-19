@@ -849,9 +849,30 @@
   const muted = 'rgba(122,128,153,0.3)';
   const textMuted = '#7a8099';
 
-  function drawChart(canvasId, tArr, wArr, color) {
+  function trimToBurn(tArr, wArr) {
+    // Isolate the actual burn window: walk outward from the peak sample
+    // while thrust stays above a noise-floor threshold. A flat "longest
+    // positive run" isn't reliable here -- weak tests (e.g. partial
+    // ignition) can have long stretches of small positive drift far from
+    // the real spike, so we anchor on the peak instead.
+    const maxW = Math.max(...wArr);
+    const threshold = Math.max(0.4, maxW * 0.05);
+    const peakIdx = wArr.indexOf(maxW);
+    let start = peakIdx, end = peakIdx;
+    while (start > 0 && wArr[start - 1] > threshold) start--;
+    while (end < wArr.length - 1 && wArr[end + 1] > threshold) end++;
+    if (end - start < 1) return { t: tArr, w: wArr };
+    const t0 = tArr[start];
+    return {
+      t: tArr.slice(start, end + 1).map(t => t - t0),
+      w: wArr.slice(start, end + 1),
+    };
+  }
+
+  function drawChart(canvasId, tArrIn, wArrIn, color) {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return;
+    const { t: tArr, w: wArr } = trimToBurn(tArrIn, wArrIn);
     const ctx = canvas.getContext('2d');
     const W = canvas.offsetWidth || 400;
     const H = canvas.height;
