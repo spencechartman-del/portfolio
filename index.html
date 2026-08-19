@@ -116,8 +116,6 @@
   .tag-accent { border-color: var(--accent-dim2); color: var(--accent); }
   .tag-green { border-color: rgba(62,207,142,0.3); color: var(--green); }
   .tag-amber { border-color: rgba(245,166,35,0.3); color: var(--amber); }
-  .project-files { font-family: var(--mono); font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 14px; line-height: 1.85; }
-  .project-files span { color: var(--accent); }
 
   /* SKILLS */
   .skills-outer { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
@@ -201,7 +199,6 @@
   .cad-part-name { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.2; }
   .cad-part-role { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
   .cad-part-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
-  .cad-part-file { font-family: var(--mono); font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; opacity: 0.7; }
 
   /* IGNITION TEST VIDEOS */
   .ts-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 56px; }
@@ -378,9 +375,6 @@
         <span class="tag">Airframe</span>
         <span class="tag">Propulsion</span>
       </div>
-      <div class="project-files">
-        <span>plane_assembly.SLDASM</span><br>fuselage1 · propeller
-      </div>
     </div>
 
     <div class="project-card green">
@@ -396,9 +390,6 @@
         <span class="tag">BOM</span>
         <span class="tag">Tech Drawing</span>
       </div>
-      <div class="project-files">
-        <span>yad7my_Assignment5.SLDASM</span><br>6 links · 4 motors · drawing PDF
-      </div>
     </div>
 
     <div class="project-card amber">
@@ -412,9 +403,6 @@
         <span class="tag">Rack & Pinion</span>
         <span class="tag">Parametric</span>
         <span class="tag">Mechanisms</span>
-      </div>
-      <div class="project-files">
-        <span>yad7my_Assignment6_Assembly.SLDASM</span><br>4 custom parts · spur · rack · internal gear
       </div>
     </div>
 
@@ -436,9 +424,6 @@
         <span class="tag">Swept Profiles</span>
         <span class="tag">Multi-body</span>
         <span class="tag">DFM</span>
-      </div>
-      <div class="project-files">
-        <span>Assignments 2 · 3 · 4 · 8 · 9</span><br>.SLDPRT · .SLDALASM
       </div>
     </div>
   </div>
@@ -510,7 +495,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/cylinder_cement_mold.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Printed shell used to cast quick-setting cement into a cylindrical form. The cured cement becomes the core mold for shaping the propellant grain's inner bore geometry.</div>
-      <div class="cad-part-file">📄 cylinder_cement_mold.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -523,7 +507,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/propellant_mold.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Outer mold for casting and curing the solid propellant grain inside the PVC motor casing. Defines the outer diameter and ensures concentricity during cure.</div>
-      <div class="cad-part-file">📄 Propellant_mold.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -536,7 +519,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/tamp.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Tamping rod used to compress propellant increments into the motor casing during casting, ensuring uniform density and eliminating voids in the grain.</div>
-      <div class="cad-part-file">📄 Tamp.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -549,7 +531,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/funnel.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Custom funnel sized to the motor casing inner diameter. Channels propellant mix cleanly into the tube without spillage during the casting process.</div>
-      <div class="cad-part-file">📄 funnel.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -562,7 +543,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/one_fourth_cap.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">End cap for sealing the motor casing nozzle end during propellant casting and cure. Threaded 1/4" interface ensures a secure, leak-free press fit.</div>
-      <div class="cad-part-file">📄 one_fourth__cap.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -575,7 +555,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/four_inch_bolt.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Custom-length fastener for securing the motor casing to the stand fixture. Printed to exact length to allow alignment adjustability within the clamp assembly.</div>
-      <div class="cad-part-file">📄 Four-Inch_Bolt.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -588,7 +567,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/load_cell_attachment_v1.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">First iteration adapter coupling the S-type load cell to the motor casing base. Transfers axial thrust force cleanly into the load cell sensing axis.</div>
-      <div class="cad-part-file">📄 Load_Cell_Attachment_solidworks.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -601,7 +579,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/load_cell_attachment_v2.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Revised load cell adapter with improved geometry after v1 testing revealed alignment issues. Refined contact surface ensures consistent force path and reduces off-axis loading.</div>
-      <div class="cad-part-file">📄 Load_Cell_Attachment_v2.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -614,7 +591,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/stabilizer.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Cross-arm clamp that laterally constrains the motor casing on the stand top plate. Adjustable via threaded bolts to accommodate different casing diameters.</div>
-      <div class="cad-part-file">📄 Stabilizer.SLDPRT</div>
     </div>
     <div class="cad-part-card">
       <div class="cad-part-header">
@@ -627,7 +603,6 @@
       </div>
       <model-viewer class="cad-model-viewer" src="models/ground_stabilizer.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="cad-part-desc">Footer block printed to anchor the stand base to the ground surface during static fire, preventing recoil displacement and maintaining load cell alignment under thrust.</div>
-      <div class="cad-part-file">📄 ground_stabilizer.SLDPRT</div>
     </div>
   </div>
 
