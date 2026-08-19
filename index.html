@@ -361,6 +361,7 @@
       <div class="project-icon icon-blue">✈</div>
       <div class="project-number">01 — Full Assembly</div>
       <div class="project-title">Fixed-Wing Plane Assembly</div>
+      <model-viewer class="cad-model-viewer" src="models/plane_assembly.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="project-desc">Multi-component aircraft assembly integrating fuselage, propeller, and landing gear wheel. Focused on mating constraints, clearance fits, and aerodynamic exterior form.</div>
       <div class="project-tags">
         <span class="tag tag-accent">Assembly</span>
@@ -377,6 +378,7 @@
       <div class="project-icon icon-green">⬡</div>
       <div class="project-number">02 — Assembly · BOM</div>
       <div class="project-title">6-DOF Robotic Arm</div>
+      <model-viewer class="cad-model-viewer" src="models/robotic_arm.glb" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.7" exposure="0.9" environment-image="neutral" interaction-prompt="none" loading="lazy"></model-viewer>
       <div class="project-desc">Six-link robotic arm with NEMA 17 and NEMA 23 stepper motors. Full engineering BOM and 1:8 scale technical drawing produced in SolidWorks, detailing link geometry and motor interfaces.</div>
       <div class="project-tags">
         <span class="tag tag-green">Robotics</span>
@@ -416,6 +418,7 @@
         <button type="button" class="active" onclick="document.getElementById('pps-viewer').src='models/assignment2.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 2</button>
         <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment3.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 3</button>
         <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment4.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 4</button>
+        <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment8.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 8</button>
         <button type="button" onclick="document.getElementById('pps-viewer').src='models/assignment9.glb';document.querySelectorAll('#pps-selector button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Assignment 9</button>
       </div>
       <div class="project-desc">Series of increasingly complex solid parts demonstrating mastery of SolidWorks feature-based modeling: extrusions, revolves, swept profiles, patterns, multi-body design, and surface features.</div>
